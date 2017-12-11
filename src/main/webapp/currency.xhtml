@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Currency Converter</title>
+    </h:head>
+    <h:body>
+        <h1>Welcome to Currency Converter!</h1>
+        
+        <h3>Currencies</h3>
+        <p>
+            
+            <h:outputLabel for="currencyRate" rendered="#{handler.currency != null}"  value="Rate: "/>
+            <h:outputText id="currenyRate" value="#{handler.currency.rate}"/>
+            <h:outputLabel for="currencyRate" rendered="#{handler.currency != null}"  value="Country: "/>
+            <h:outputText id="currenyCountry" value="#{handler.currency.country}"/>
+            
+            <h:outputText rendered="#{handler.currency == null}"  value="No currencies available."/>
+        </p>
+        <hr/>
+        <h:form>
+            <h3>Click</h3>
+            <p>
+                <!-- <h:outputLabel for="country" value="Country name "/>
+                <h:inputText id="country" value="#{handler.country}"/> -->
+            </p>
+            <p>
+               <!-- <h:outputLabel for="rate" value="Rate of currency: "/> 
+                <h:inputText id="rate" value="#{handler.rate}"/> -->
+            </p>
+            <p>
+                <h:commandButton value="add" action="#{handler.addCurrencies}"/>
+            </p>
+        <hr/>    
+        </h:form>
+        
+    </h:body>
+</html>
