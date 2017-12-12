@@ -31,9 +31,8 @@ public class Facade {
         return cdb.findCurrency(id);
     }
     
-    // CHECK HERE
-    public double toDollar(int id, double amount){
-        Currency currency = cdb.findCurrency(id);
+    
+    public double toDollar(Currency currency, double amount){
         double dollar = currency.getRate() * amount;
         return dollar;
     }

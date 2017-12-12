@@ -13,26 +13,45 @@ and open the template in the editor.
     <h:body>
         <h1>Welcome to Currency Converter!</h1>
         
-        <h3>Currencies</h3>
+        <h3>Available currencies</h3>
         <p>
-          
-            <h:outputLabel for=" currencyRate" rendered="#{handler.currency != null}"  value="Rate: "/>
+            <text>Sweden (SEK) </text>
+        </p>
+        <p>
+            <text>Serbia (RSD) </text>
+        </p>
+        <p>
+            <text>USA (USD) </text>
+        </p>
+        <p>
+            <text>Greatbritain (GBP) </text>
+        </p>
+        <p>
+            <text>Eurozone (EUR) </text>
+        </p>
+        <hr/>
+        <h:form>
+            <h3>Converted Rates</h3>
+            <p>
+            <h:outputLabel for=" currencyRate" rendered="#{handler.currency != null}"  value="Currency rate to US dollar: "/>
             <h:outputText id="currenyRate" value="#{handler.currency.rate}"/>
+            </p>
+            <p>
             <h:outputLabel for=" currencyRate" rendered="#{handler.currency != null}"  value="Country: "/>
             <h:outputText id="currenyCountry" value="#{handler.currency.country}"/>
             
-            <h:outputText rendered="#{handler.currency == null}"  value="No currencies available."/>
-        </p>
-        <hr/>
+            <h:outputText rendered="#{handler.currency == null}"  value="No currency converted."/>
+            </p>
+        </h:form>
         <h:form>
             <h3>Convert </h3>
             
              <p>
-                <h:outputLabel for="searchCountry" value="Convert from (Country):  "/>
+                <h:outputLabel for="searchCountry" value="Convert from (Country name):  "/>
                 <h:inputText id="searchCountry" value="#{handler.country}"/>
             </p>
             <p>
-                <h:outputLabel for="searchCountry2" value="Convert to (Country):  "/>
+                <h:outputLabel for="searchCountry2" value="Convert to (Country name):  "/>
                 <h:inputText id="searchCountry2" value="#{handler.country2}"/>
             </p>
             <p>

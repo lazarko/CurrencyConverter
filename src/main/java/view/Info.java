@@ -11,6 +11,12 @@ package view;
  */
 public class Info {
  
+    // ID
+    public static final Integer id_SEK = 1;
+    public static final Integer id_RSD = 2;
+    public static final Integer id_USD = 3;
+    public static final Integer id_EUR = 4;
+    public static final Integer id_GBP = 5;
     
     // rates compared to dollar
     public static final double SEK = 0.11778;

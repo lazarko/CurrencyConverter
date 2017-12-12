@@ -25,14 +25,6 @@ public class Handler implements Serializable {
     private double rate;
     private String country;
     private String country2;
-    
-    Integer id_SEK = 1;
-    Integer id_RSD = 2;
-    Integer id_USD = 3;
-    Integer id_EUR = 4;
-    Integer id_GBP = 5;
-    
-
     private double amount;
     private double converted;
     private double toDollar;
@@ -50,15 +42,14 @@ public class Handler implements Serializable {
     }
     
     public void convert(){
-        //try{
+        try{
             findCurrency(true, country);
             findCurrency(false, country2);
-            setAmount(amount);
-            //setToDollar(facade.toDollar(searchedId, amount));
-            setConverted((facade.toDollar(searchedId, amount))/secondCurrency.getRate()); 
-        //}//catch(Exception e){
-            System.out.println("FUCK");
-        //}
+            
+            setConverted((facade.toDollar(currency, amount))/secondCurrency.getRate()); 
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
         
     public void findCurrency(boolean id, String countryId){
@@ -76,25 +67,39 @@ public class Handler implements Serializable {
     }
     // TODO : CASE IGNORE
     private void setValues(boolean id, String countryId){
-        switch(countryId){
-            case Info.Country1:
-                setCurrencyId(id_SEK, id);
-                break;
-            case Info.Country2:
-                setCurrencyId(id_RSD, id);
-                break;
-            case Info.Country3:
-                setCurrencyId(id_USD, id);
-                break;
-            case Info.Country4:
-                setCurrencyId(id_EUR, id);
-                break;
-            case Info.Country5:
-                setCurrencyId(id_GBP, id);
-                break;
-            default :
-                setCurrencyId(null, id);
-        }     
+        // Need if statements for case insensitive
+        if(countryId.equalsIgnoreCase(Info.Country1)){
+            setCurrencyId(Info.id_SEK, id);
+        }else if(countryId.equalsIgnoreCase(Info.Country2)){
+            setCurrencyId(Info.id_RSD, id);
+        }else if(countryId.equalsIgnoreCase(Info.Country3)){
+            setCurrencyId(Info.id_USD, id);
+        }else if(countryId.equalsIgnoreCase(Info.Country4)){
+            setCurrencyId(Info.id_EUR, id);
+        }else if(countryId.equalsIgnoreCase(Info.Country5)){
+            setCurrencyId(Info.id_GBP, id);
+        }else{
+              setCurrencyId(null, id);
+        }
+//        switch(countryId){
+//            case Info.Country1:
+//                setCurrencyId(Info.id_SEK, id);
+//                break;
+//            case Info.Country2:
+//                setCurrencyId(Info.id_RSD, id);
+//                break;
+//            case Info.Country3:
+//                setCurrencyId(Info.id_USD, id);
+//                break;
+//            case Info.Country4:
+//                setCurrencyId(Info.id_EUR, id);
+//                break;
+//            case Info.Country5:
+//                setCurrencyId(Info.id_GBP, id);
+//                break;
+//            default :
+//                setCurrencyId(null, id);
+//        }     
     }
     
     
@@ -103,9 +108,10 @@ public class Handler implements Serializable {
         if(id == true){
             this.searchedId = searchedId;
         }else{
-            this.searchedId = searchId2;
+            this.searchId2 = searchedId;
         }
     }
+  
     public void setRate(double rate){
         this.rate = rate;
     }
