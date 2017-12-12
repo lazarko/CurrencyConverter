@@ -29,12 +29,6 @@ public class CurrenciesDAO {
         return currency;
     }
     
-    public Currency findCurrByCountry(String country){
-        Currency currency = (Currency) em.createNamedQuery("findCurrencyByCountry", Currency.class).
-                setParameter("c", country).getSingleResult();
-        return currency;
-    }
-    
     public void storeCurrency(Currency curr){
         em.persist(curr);
     }

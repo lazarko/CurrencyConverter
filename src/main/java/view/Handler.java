@@ -80,26 +80,7 @@ public class Handler implements Serializable {
             setCurrencyId(Info.id_GBP, id);
         }else{
               setCurrencyId(null, id);
-        }
-//        switch(countryId){
-//            case Info.Country1:
-//                setCurrencyId(Info.id_SEK, id);
-//                break;
-//            case Info.Country2:
-//                setCurrencyId(Info.id_RSD, id);
-//                break;
-//            case Info.Country3:
-//                setCurrencyId(Info.id_USD, id);
-//                break;
-//            case Info.Country4:
-//                setCurrencyId(Info.id_EUR, id);
-//                break;
-//            case Info.Country5:
-//                setCurrencyId(Info.id_GBP, id);
-//                break;
-//            default :
-//                setCurrencyId(null, id);
-//        }     
+        }    
     }
     
     
