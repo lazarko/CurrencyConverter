@@ -15,28 +15,39 @@ and open the template in the editor.
         
         <h3>Currencies</h3>
         <p>
-            
-            <h:outputLabel for="currencyRate" rendered="#{handler.currency != null}"  value="Rate: "/>
+          
+            <h:outputLabel for=" currencyRate" rendered="#{handler.currency != null}"  value="Rate: "/>
             <h:outputText id="currenyRate" value="#{handler.currency.rate}"/>
-            <h:outputLabel for="currencyRate" rendered="#{handler.currency != null}"  value="Country: "/>
+            <h:outputLabel for=" currencyRate" rendered="#{handler.currency != null}"  value="Country: "/>
             <h:outputText id="currenyCountry" value="#{handler.currency.country}"/>
             
             <h:outputText rendered="#{handler.currency == null}"  value="No currencies available."/>
         </p>
         <hr/>
         <h:form>
-            <h3>Click</h3>
-            <p>
-                <!-- <h:outputLabel for="country" value="Country name "/>
-                <h:inputText id="country" value="#{handler.country}"/> -->
+            <h3>Convert </h3>
+            
+             <p>
+                <h:outputLabel for="searchCountry" value="Convert from (Country):  "/>
+                <h:inputText id="searchCountry" value="#{handler.country}"/>
             </p>
             <p>
-               <!-- <h:outputLabel for="rate" value="Rate of currency: "/> 
-                <h:inputText id="rate" value="#{handler.rate}"/> -->
+                <h:outputLabel for="searchCountry2" value="Convert to (Country):  "/>
+                <h:inputText id="searchCountry2" value="#{handler.country2}"/>
             </p>
             <p>
-                <h:commandButton value="add" action="#{handler.addCurrencies}"/>
+                <h:outputLabel for="amount" value="amount:  "/>
+                <h:inputText id="amount" value="#{handler.amount}"/>
             </p>
+            <p>
+                <h:commandButton value="CONVERT" action="#{handler.convert}"/>
+            </p>
+            <p>
+                <h:outputLabel for=" currencyConverted" rendered="#{handler.converted != null}"  value="Converted : "/>
+                <h:outputText id="currenyConverted" value="#{handler.converted}"/>
+            
+                <h:outputText rendered="#{handler.converted == null}"  value="Convert"/>
+            </p> 
         <hr/>    
         </h:form>
         

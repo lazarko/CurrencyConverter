@@ -19,28 +19,7 @@ import model.Currency;
 public class Facade {
     @EJB CurrenciesDAO cdb;
     
-        
-    // rates compared to dollar
-    public static final double SEK = 0.11778;
-    public static final double RSD = 0.00984;
-    public static final double USD = 1.0;
-    public static final double EUR = 1.17991;
-    public static final double GBP = 1.33884;
-    
-    // Countries
-    public static final String country_one = "Sweden";
-    public static final String country_two = "Serbia";
-    public static final String country_three = "USA";
-    public static final String country_four = "Eurozone";
-    public static final String country_five = "Greatbritain";
-    
-    public Currency addAll(){
-        return addCurrency(SEK, country_one);
-//        addCurrency(RSD, country_two);
-//        addCurrency(USD, country_three);
-//        addCurrency(EUR, country_four);
-//        addCurrency(GBP, country_five);
-    }
+
     public Currency addCurrency(double rate, String country){
         Currency currency = new Currency(rate, country);
         
